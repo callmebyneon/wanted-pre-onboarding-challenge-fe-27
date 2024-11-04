@@ -1,0 +1,33 @@
+.inputLabel {
+  --dim: rgb(173, 169, 169);
+  --focus: #646cff;
+
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: 2px;
+}
+.inputLabel > span {
+  color: var(--dim);
+  font-size: 0.9em;
+  transition: color 0.25s;
+}
+.inputLabel > input,
+.inputLabel > textarea {
+  border-radius: 8px;
+  border: 1px solid var(--dim);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: border-color 0.25s;
+  outline-color: var(--focus);
+}
+.inputLabel > input:focus,
+.inputLabel > textarea:focus {
+  border-color: var(--focus);
+}
+.inputLabel > input:focus ~ span,
+.inputLabel > tex:focus ~ span {
+  color: var(--focus);
+}

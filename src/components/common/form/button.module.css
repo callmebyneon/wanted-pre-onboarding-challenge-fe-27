@@ -1,0 +1,12 @@
+.red {
+  --main-color: rgb(255, 50, 50);
+}
+.green {
+  --main-color: rgb(9, 167, 9);
+}
+.gray {
+  --main-color: rgb(173, 169, 169);
+}
+.grey {
+  --main-color: rgb(173, 169, 169);
+}

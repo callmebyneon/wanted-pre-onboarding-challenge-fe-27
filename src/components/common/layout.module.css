@@ -1,0 +1,23 @@
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1em;
+}
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1em;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.alert {
+  display: block;
+  text-align: center;
+  font-size: 0.875em;
+  padding: 1em 2em;
+  background-color: rgb(255, 210, 210);
+  color: rgb(255, 50, 50);
+}
