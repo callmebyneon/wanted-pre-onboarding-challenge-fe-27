@@ -56,9 +56,7 @@
 - 아래 패키지 의존성과 같이 구현을 위해 `react`(&`react-dom`)^18, `react-router`(&`react-router-dom`)^6, `react-query`^5 활용
 
 ```json
-// (package.json)
 {
-  ...
   "dependencies": {
     "@tanstack/react-query": "^5.59.19",
     "react": "^18.3.1",
@@ -66,7 +64,6 @@
     "react-router": "^6.27.0",
     "react-router-dom": "^6.27.0"
   },
-  ...
 }
 ```
 
@@ -82,6 +79,21 @@
 
 ### CRUD 구현
 
+- GET
 
-### 실시간 반영과 낙관적 업데이트
+```md
+----------------------- tanstack/react-query -----------------------
+fetch 함수 (Request) --> API Response (Promise) --> 가져온 data 사용 (from useQuery)
+```
+
+- POST / PUT / DELETE
+
+```md
+----------------------- tanstack/react-query -----------------------
+[mutate 함수 사용 (from useMutation)] --> fetch 함수 (Request) --> API Response (Promise)
+```
+
+### 수정된 내용 실시간 반영 및 낙관적 업데이트
+
+_진행 중_
 
