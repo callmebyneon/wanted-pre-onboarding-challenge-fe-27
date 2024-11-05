@@ -1,4 +1,4 @@
-import { TodoInput } from "../components/Todo/TodoListItem";
+import { TodoInput } from "../components/pages/Todo/TodoListItem";
 import { BASE_URL } from "../constants/base_url";
 
 export const getTodos = () => fetch(BASE_URL + "/todos", {

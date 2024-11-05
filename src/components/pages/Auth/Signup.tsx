@@ -1,8 +1,8 @@
-import ActionButton from "../common/form/ActionButton";
-import TextInput from "../common/form/TextInput"
+import ActionButton from "../../common/form/ActionButton";
+import TextInput from "../../common/form/TextInput"
 import style from "./auth.module.css";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../constants/base_url";
+import { BASE_URL } from "../../../constants/base_url";
 import { useNavigate } from "react-router";
 import { validateEmail, validatePassword } from "./validation";
 

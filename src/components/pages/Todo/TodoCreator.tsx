@@ -3,13 +3,13 @@ import { useMutation } from "@tanstack/react-query";
 
 import { TodoInput } from "./TodoListItem";
 
-import ActionButton from "../common/form/ActionButton";
-import TextInput from "../common/form/TextInput";
-import Textarea from "../common/form/Textarea";
+import ActionButton from "../../common/form/ActionButton";
+import TextInput from "../../common/form/TextInput";
+import Textarea from "../../common/form/Textarea";
 
 import layout from "../common/layout.module.css"
-import { queryClient } from "../../main";
-import { createTodo } from "../../actions/fetch_fns";
+import { queryClient } from "../../../main";
+import { createTodo } from "../../../actions/fetch_fns";
 
 const TodoCreator = () => {
   const [input, setInput] = useState<TodoInput>({ title: "", content: "" })

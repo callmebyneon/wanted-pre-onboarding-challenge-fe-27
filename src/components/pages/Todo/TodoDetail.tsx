@@ -1,15 +1,15 @@
 import { useState } from "react";
-import ActionButton from "../common/form/ActionButton";
+import ActionButton from "../../common/form/ActionButton";
 import { TodoInput } from "./TodoListItem";
 import { useNavigate, useParams } from "react-router";
-import TextInput from "../common/form/TextInput";
-import Textarea from "../common/form/Textarea";
+import TextInput from "../../common/form/TextInput";
+import Textarea from "../../common/form/Textarea";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 import style from "./todo.module.css"
-import { queryClient } from "../../main";
-import { getCreatedBefore } from "../../constants/util";
-import { deleteTodo, getTodoById, updateTodo } from "../../actions/fetch_fns";
+import { queryClient } from "../../../main";
+import { getCreatedBefore } from "../../../constants/util";
+import { deleteTodo, getTodoById, updateTodo } from "../../../actions/fetch_fns";
 
 type Mode = "read" | "update";
 const TodoDetail = () => {

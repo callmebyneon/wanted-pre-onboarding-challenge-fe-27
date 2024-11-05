@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import ActionButton from "../common/form/ActionButton";
-import TextInput from "../common/form/TextInput"
+import ActionButton from "../../common/form/ActionButton";
+import TextInput from "../../common/form/TextInput"
 import style from "./auth.module.css";
 import { useEffect, useState } from "react";
 import { UserInput } from "./Signup";
-import { BASE_URL } from "../../constants/base_url";
+import { BASE_URL } from "../../../constants/base_url";
 import { validateEmail, validatePassword } from "./validation";
 
 const Login = () => {
