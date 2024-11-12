@@ -45,6 +45,7 @@
 
 - [x] 로그인 / 회원 가입 기능은 유저를 DB에 추가하고 JWT 토큰을 응답으로 돌려줄 뿐, 실제 유저별로 Todo 목록을 관계 지어 관리하지는 않습니다. (모든 유저가 하나의 Todo를 가짐)
 - [x] 로그아웃은 클라이언트 단에서 localStorage에 저장된 token을 삭제하는 방식으로 간단히 구현해주세요.
+- [ ] (추가) [API 서버](https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api/tree/refactor)에서 Todos 데이터를 가져올 때 쿼리 파라미터가 추가됨에 따라 송신 받는 데이터 형식 변경
 
 ---
 
