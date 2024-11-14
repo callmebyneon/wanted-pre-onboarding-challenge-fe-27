@@ -4,7 +4,8 @@ import Todo from "../components/pages/Todo";
 import TodoDetail from "../components/pages/Todo/TodoDetail";
 import { Login, Signup } from "../components/pages/Auth";
 
-const router = createBrowserRouter([
+// TODO: 404 페이지 라우트 예외 처리
+const serviceRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
@@ -31,4 +32,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router
+export default serviceRouter
