@@ -3,13 +3,14 @@ import { useMutation } from "@tanstack/react-query";
 
 import { TodoInput } from "./TodoListItem";
 
-import ActionButton from "../../common/form/ActionButton";
-import TextInput from "../../common/form/TextInput";
-import Textarea from "../../common/form/Textarea";
+import ActionButton from "../../widgets/form/ActionButton";
+import TextInput from "../../widgets/form/TextInput";
+import Textarea from "../../widgets/form/Textarea";
 
-import layout from "../common/layout.module.css"
-import { queryClient } from "../../../main";
-import { createTodo } from "../../../actions/fetch_fns";
+import { createTodo } from "../../features/todo/fetch_fns";
+import { appQueryClient } from "@/app/providers/query-client";
+
+import layout from "@/pages/Layout/layout.module.css"
 
 const TodoCreator = () => {
   const [input, setInput] = useState<TodoInput>({ title: "", content: "" })
@@ -28,7 +29,7 @@ const TodoCreator = () => {
     mutationKey: ["todos"],
     mutationFn: createTodo,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"]})
+      appQueryClient.invalidateQueries({ queryKey: ["todos"]})
     }
   })
   

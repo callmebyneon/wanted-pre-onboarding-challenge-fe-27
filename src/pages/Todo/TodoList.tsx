@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import TodoListItem, { TodoData } from "./TodoListItem";
 import style from "./todo.module.css"
-import { getTodos } from "../../../actions/fetch_fns";
+import { getTodos } from "../../features/todo/fetch_fns";
 
 const TodoList = () => {
   const { data, status } = useQuery({

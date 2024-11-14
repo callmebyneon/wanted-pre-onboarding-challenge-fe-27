@@ -1,4 +1,4 @@
-import { ONE_HOUR_IN_SECS } from "./times_unit";
+import { ONE_HOUR_IN_SECS } from "../times_unit_const";
 
 export function getCreatedBefore(createdAt: string): string {
   const createdTime = Date.parse(createdAt);

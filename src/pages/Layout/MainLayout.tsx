@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header from "./components/common/Header";
+import Header from "./Header";
 
-const App = () => {
+const MainLayout = () => {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ const App = () => {
   );
 }
 
-export default App
+export default MainLayout

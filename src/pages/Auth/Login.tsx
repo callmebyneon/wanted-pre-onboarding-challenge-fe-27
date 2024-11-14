@@ -1,26 +1,22 @@
-import ActionButton from "../../common/form/ActionButton";
-import TextInput from "../../common/form/TextInput"
+import { useNavigate } from "react-router-dom";
+import ActionButton from "../../widgets/form/ActionButton";
+import TextInput from "../../widgets/form/TextInput"
 import style from "./auth.module.css";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../../constants/base_url";
-import { useNavigate } from "react-router";
+import { UserInput } from "./Signup";
+import { API_BASE_URL } from "../../shared/api/base_url";
 import { validateEmail, validatePassword } from "./validation";
 
-export type UserInput = {
-  email: string;
-  password: string;
-}
-
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token")
     if (token) {
       navigate("/")
     }
   }, [])
-
+  
   const [input, setInput] = useState<UserInput>({ email: "", password: "" })
   const [message, setMessage] = useState<string>("")
 
@@ -31,8 +27,8 @@ const Signup = () => {
   }
   const onSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-
-    const result = await fetch(BASE_URL + "/users/create", {
+    
+    const result = await fetch(API_BASE_URL + "/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,9 +36,11 @@ const Signup = () => {
       body: JSON.stringify(input),
     })
       .then(res => res.json())
+      .catch(err => console.error(err))
     
     if (result?.token) {
-      navigate("/login")
+      localStorage.setItem("token", result.token)
+      navigate("/")
     }
     setMessage(result?.details ?? result?.message)
   }
@@ -50,9 +48,9 @@ const Signup = () => {
   return (
     <div className={style.formBox}>
       <form>
-        <h1>회원가입</h1>
+        <h1>로그인</h1>
         <div className={style.formAlign}>
-          <TextInput 
+        <TextInput 
             type="email" 
             lableName="Email" 
             name="email" 
@@ -65,7 +63,7 @@ const Signup = () => {
             lableName="Password" 
             name="password" 
             minLength={8} 
-            placeholder="******** (equal or over than 8 characters)"
+            placeholder="********"
             value={input.password}
             onChange={onChangeValue}
           />
@@ -74,11 +72,11 @@ const Signup = () => {
             type="submit" 
             onClick={onSubmit} 
             disabled={!validateEmail(input.email) || !validatePassword(input.password)}
-          >Sign up</ActionButton>
+          >Log in</ActionButton>
         </div>
       </form>
     </div>
   );
 }
 
-export default Signup
+export default Login

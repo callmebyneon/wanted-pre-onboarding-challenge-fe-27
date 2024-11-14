@@ -1,7 +1,7 @@
-import { TodoInput } from "../components/pages/Todo/TodoListItem";
-import { BASE_URL } from "../constants/base_url";
+import { TodoInput } from "@/pages/Todo/TodoListItem";
+import { API_BASE_URL } from "@/shared/api/base_url";
 
-export const getTodos = () => fetch(BASE_URL + "/todos", {
+export const getTodos = () => fetch(API_BASE_URL + "/todos", {
   headers: {
     Authorization: localStorage.getItem("token") as string,
   }
@@ -10,7 +10,7 @@ export const getTodos = () => fetch(BASE_URL + "/todos", {
   .then(data => data.data)
   .catch(err => console.error(err))
 
-export const getTodoById = (id: string) => () => fetch(BASE_URL + "/todos/" + id, {
+export const getTodoById = (id: string) => () => fetch(API_BASE_URL + "/todos/" + id, {
   headers: {
     Authorization: localStorage.getItem("token") as string,
   }
@@ -21,7 +21,7 @@ export const getTodoById = (id: string) => () => fetch(BASE_URL + "/todos/" + id
   
 export const createTodo = async (newTodo: TodoInput) => {
   console.log({newTodo})
-  return fetch(BASE_URL + "/todos", {
+  return fetch(API_BASE_URL + "/todos", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const createTodo = async (newTodo: TodoInput) => {
 }
 
 export const updateTodo = (id: string) => async (newTodo: TodoInput) => {
-  return fetch(BASE_URL + "/todos/" + id, {
+  return fetch(API_BASE_URL + "/todos/" + id, {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const updateTodo = (id: string) => async (newTodo: TodoInput) => {
 }
 
 export const deleteTodo = (id: string) => async () => {
-  return fetch(BASE_URL + "/todos/" + id, {
+  return fetch(API_BASE_URL + "/todos/" + id, {
   method: "DELETE",
   headers: {
     Authorization: localStorage.getItem("token") as string,

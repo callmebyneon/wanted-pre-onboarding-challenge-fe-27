@@ -1,15 +1,16 @@
 import { useState } from "react";
-import ActionButton from "../../common/form/ActionButton";
+import ActionButton from "../../widgets/form/ActionButton";
 import { TodoInput } from "./TodoListItem";
 import { useNavigate, useParams } from "react-router";
-import TextInput from "../../common/form/TextInput";
-import Textarea from "../../common/form/Textarea";
+import TextInput from "../../widgets/form/TextInput";
+import Textarea from "../../widgets/form/Textarea";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
+import { getCreatedBefore } from "../../shared/ui/util_fns";
+import { deleteTodo, getTodoById, updateTodo } from "../../features/todo/fetch_fns";
+
 import style from "./todo.module.css"
-import { queryClient } from "../../../main";
-import { getCreatedBefore } from "../../../constants/util";
-import { deleteTodo, getTodoById, updateTodo } from "../../../actions/fetch_fns";
+import { appQueryClient } from "@/app/providers/query-client";
 
 type Mode = "read" | "update";
 const TodoDetail = () => {
@@ -38,10 +39,10 @@ const TodoDetail = () => {
     mutationFn: updateTodo(id as string),
     onSuccess: () => {
       setMode("read")
-      queryClient.invalidateQueries({ queryKey: ["todos", id]})
+      appQueryClient.invalidateQueries({ queryKey: ["todos", id]})
     },
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos", id]})
+      appQueryClient.invalidateQueries({ queryKey: ["todos", id]})
     }
   })
   const { mutate: deleteItem, isPending: isDeletePending } = useMutation({
@@ -49,7 +50,7 @@ const TodoDetail = () => {
     mutationFn: deleteTodo(id as string),
     onSuccess: () => {
       navigate("/list")
-      queryClient.invalidateQueries({ queryKey: ["todos"]})
+      appQueryClient.invalidateQueries({ queryKey: ["todos"]})
     },
   })
 

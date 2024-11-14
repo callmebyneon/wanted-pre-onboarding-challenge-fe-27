@@ -1,15 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App"
-import Todo from "../components/pages/Todo";
-import TodoDetail from "../components/pages/Todo/TodoDetail";
-import { Login, Signup } from "../components/pages/Auth";
 
-// TODO: 404 페이지 라우트 예외 처리
-const serviceRouter = createBrowserRouter([
+/* pages */
+import MainLayout from "@/pages/Layout/MainLayout";
+import Home from "@/pages/Home";
+import Todo from "@/pages/Todo";
+import TodoDetail from "@/pages/Todo/TodoDetail";
+import { Login, Signup } from "@/pages/Auth";
+
+const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MainLayout />,
     children: [
+      {
+        index: true,
+        element: <Home />,
+      },
       {
         path: "list",
         element: <Todo />,
@@ -32,4 +38,4 @@ const serviceRouter = createBrowserRouter([
   },
 ]);
 
-export default serviceRouter
+export default appRouter

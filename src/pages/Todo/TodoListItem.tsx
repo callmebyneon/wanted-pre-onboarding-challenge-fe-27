@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getCreatedBefore } from "../../../constants/util";
+import { getCreatedBefore } from "../../shared/ui/util_fns";
 
 export type TodoInput = {
   title: string;
